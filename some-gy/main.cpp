@@ -26,7 +26,7 @@ vector<string> split(string s, char delim)
     stringstream ss(s);
     string item;
     vector<string> tokens;
-    while (getline(ss, item, delim)) 
+    while (getline(ss, item, delim))
     {
         tokens.push_back(item);
     }
@@ -37,7 +37,7 @@ int str2int (const string &str) {
   stringstream ss(str);
   int num;
   if((ss >> num).fail())
-  { 
+  {
       cout<<"an error came make sure extra spaces are stripped.";
       exit(1);
   }
@@ -155,7 +155,7 @@ queue<int> reverse(queue<int>q)
         st.push(q.front());
         q.pop();
     }
- 
+
    //pop elements from st and enQueue again Q
     while (!st.empty()){
         q.push(st.top());
@@ -238,7 +238,6 @@ int main()
 		}
 	}
 	queue<int>q=generate_topo_sort(g,n,in_degree);
-	// q=reverse(q);
 	while(!q.empty())
 	{
 		int inp=0;
@@ -252,6 +251,7 @@ int main()
 		for(iter=in[i].begin();iter!=in[i].end();iter++)
 		{
 			inp+=iter->second*g[iter->first].state;
+			cout<<iter->second<<" "<<g[iter->first].state<<"\n";
 		}
 		if(inp>0)
 		{
@@ -259,7 +259,7 @@ int main()
 		}
 		else
 		{
-			g[i].state=0;	
+			g[i].state=0;
 		}
 		q.pop();
 	}
